@@ -4,7 +4,7 @@
 ## AWS region in which this ingress controller will operate
 ## REQUIRED
 #
-awsRegion: us-west-1
+awsRegion: us-west-2
 
 ## Auto Discover awsRegion from ec2metadata, set this to true and omit awsRegion when ec2metadata is available.
 autoDiscoverAwsRegion: false
