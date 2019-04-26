@@ -8,7 +8,6 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 29089aabaa8aa08a03215098b1982ad38f6cd9de1c9b25ff842003a53cad881d
     version: 0.1.0
-      engine: gotpl
   home: https://github.com/kubernetes-sigs/aws-alb-ingress-controller
   keywords:
     - aws
@@ -22,7 +21,6 @@ entries:
       email: davor@stankovic.me
   urls:
     - aws-alb-ingress-0.1.0.tgz
-
-sources:
+  sources:
   - https://github.com/kubernetes-sigs/aws-alb-ingress-controller
-generated: 2019-04-26T14:00:56.531328411Z
+  generated: 2019-04-26T14:00:56.531328411Z
