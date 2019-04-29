@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: {{ include "aws-alb-ingress.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-       serviceAccountName: {{ template "alb-ingress.serviceAccountName" . }}    
+       serviceAccountName: {{ template "aws-alb-ingress.serviceAccountName" . }}    
        containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
