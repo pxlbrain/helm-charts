@@ -46,7 +46,6 @@ spec:
               value: "{{ $value }}"
             {{- end }}
           ports:
-            - name: http
               containerPort: 10254
               protocol: TCP
           livenessProbe:
@@ -55,11 +54,15 @@ spec:
               port: 10254
               scheme: HTTP
             periodSeconds: 60
+            initialDelaySeconds: {{ add .Values.livenessProbeInitialDelay .Values.readinessProbeInitialDelay }}
           readinessProbe:
             httpGet:
               path: /healthz
               port: 10254
               scheme: HTTP
+            initialDelaySeconds: {{ .Values.readinessProbeInitialDelay }}
+            periodSeconds: {{ .Values.readinessProbeInterval }}
+            timeoutSeconds: {{ .Values.readinessProbeTimeout }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
