@@ -34,9 +34,9 @@ Create chart name and version as used by the chart label.
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "alb-ingress.serviceAccountName" -}}
+{{- define "aws-alb-ingress.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "alb-ingress.fullname" .) .Values.serviceAccount.name }}
+    {{ default (include "aws-alb-ingress.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}

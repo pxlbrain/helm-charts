@@ -1,6 +1,6 @@
 To verify that ALB ingress controller has started, run:
 
-  kubectl get pods -l "app={{ template "alb-ingress.name" . }},release={{ .Release.Name }}" -n {{ .Release.Namespace }}
+  kubectl get pods -l "app={{ template "aws-alb-ingress.name" . }},release={{ .Release.Name }}" -n {{ .Release.Namespace }}
 
 An example ingress that makes use of the controller:
 
