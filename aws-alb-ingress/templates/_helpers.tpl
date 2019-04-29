@@ -30,3 +30,14 @@ Create chart name and version as used by the chart label.
 {{- define "aws-alb-ingress.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "alb-ingress.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create -}}
+    {{ default (include "alb-ingress.fullname" .) .Values.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.serviceAccount.name }}
+{{- end -}}
+{{- end -}}
