@@ -47,8 +47,8 @@ spec:
               value: "{{ $value }}"
             {{- end }}
           ports:
-              containerPort: 10254
-              protocol: TCP
+              - containerPort: 10254
+                protocol: TCP
           livenessProbe:
             httpGet:
               path: /healthz
