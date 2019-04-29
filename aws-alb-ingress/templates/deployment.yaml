@@ -47,17 +47,19 @@ spec:
             {{- end }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 10254
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /healthz
+              port: 10254
+              scheme: HTTP
             periodSeconds: 60
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /healthz
+              port: 10254
+              scheme: HTTP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

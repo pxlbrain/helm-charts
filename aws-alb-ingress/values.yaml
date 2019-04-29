@@ -25,8 +25,8 @@ replicaCount: 1
 
 image:
   repository: docker.io/amazon/aws-alb-ingress-controller
-  tag: "v1.0.1"
-  pullPolicy: IfNotPresent
+  tag: "v1.1.0"
+  pullPolicy: Always
   
 extraArgs: {}
 
