@@ -64,19 +64,22 @@ spec:
             initialDelaySeconds: {{ .Values.readinessProbeInitialDelay }}
             periodSeconds: {{ .Values.readinessProbeInterval }}
             timeoutSeconds: {{ .Values.readinessProbeTimeout }}
+        {{- if .Values.resources }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
+{{ toYaml .Values.resources | indent 12 }}
+        {{- end }}
+        {{- if .Values.sidecarContainers }}
+{{ toYaml .Values.sidecarContainers | indent 8}}
+        {{- end }}
+    {{- if .Values.nodeSelector }}
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-    {{- with .Values.affinity }}
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
+    {{- if .Values.tolerations }}
       affinity:
         {{- toYaml . | nindent 8 }}
     {{- end }}
     {{- with .Values.tolerations }}
       tolerations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-    
-    
+{{ toYaml .Values.tolerations | indent 8 }}
+    {{- end }}    
