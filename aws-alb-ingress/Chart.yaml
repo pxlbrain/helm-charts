@@ -1,6 +1,6 @@
 name: aws-alb-ingress
 version: 0.1.3
-appVersion: 1.0-beta.1
+appVersion: 1.0-beta.2
 name: aws-alb-ingress
 description: The ALB Ingress Controller satisfies Kubernetes ingress resources by provisioning Application Load Balancers.
 home: https://github.com/kubernetes-sigs/aws-alb-ingress-controller
